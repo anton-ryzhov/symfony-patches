@@ -164,7 +164,9 @@ abstract class sfFormFilterDoctrine extends sfFormFilter
 
     // add those fields that are not represented in getFields() with a null type
     $names = array_merge($fields, array_diff(array_keys($this->validatorSchema->getFields()), array_keys($fields)));
-    $fields = array_merge($fields, array_combine($names, array_fill(0, count($names), null)));
+    $names = array_diff(array_keys($this->validatorSchema->getFields()), array_keys($fields));
+    if ($names)
+      $fields = array_merge($fields, array_combine($names, array_fill(0, count($names), null)));
 
     foreach ($fields as $field => $type)
     {
