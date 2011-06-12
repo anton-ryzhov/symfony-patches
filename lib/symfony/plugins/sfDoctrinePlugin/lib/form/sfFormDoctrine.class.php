@@ -184,7 +184,7 @@ abstract class sfFormDoctrine extends sfFormObject
       else
       {
         // save files
-        if ($this->validatorSchema[$field] instanceof sfValidatorFile)
+        if (($this->validatorSchema[$field] instanceof sfValidatorFile) && $this->object->contains($field))
         {
           $values[$field] = $this->processUploadedFile($field, null, $valuesToProcess);
         }          
