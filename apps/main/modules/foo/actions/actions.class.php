@@ -17,5 +17,8 @@ class fooActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->data = ForumtopicTable::getInstance()->createQuery('f')->
+      where('f.published')->
+      execute();
   }
 }
