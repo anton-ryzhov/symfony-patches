@@ -60,6 +60,7 @@ abstract class BaseForumtopic extends sfDoctrineRecord
 
         $this->option('charset', 'utf8');
         $this->option('collate', 'utf8_unicode_ci');
+        $this->option('comment', 'Forum topics');
     }
 
     public function setUp()

@@ -52,6 +52,7 @@ abstract class BaseForumcategory extends sfDoctrineRecord
         $this->option('charset', 'utf8');
         $this->option('collate', 'utf8_unicode_ci');
         $this->option('orderBy', 'sortfactor');
+        $this->option('comment', 'Forum category');
     }
 
     public function setUp()
