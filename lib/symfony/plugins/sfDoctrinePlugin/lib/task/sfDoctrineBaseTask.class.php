@@ -146,6 +146,7 @@ abstract class sfDoctrineBaseTask extends sfBaseTask
         {
           // canonicalize this definition
           $definition = $this->canonicalizeModelDefinition($model, $definition);
+          $definition = sfToolkit::arrayDeepMerge($globals, $definition);
 
           // merge in the globals
           $definition = array_merge($globals, $definition);
@@ -177,6 +178,7 @@ abstract class sfDoctrineBaseTask extends sfBaseTask
       {
         // canonicalize this definition
         $definition = $this->canonicalizeModelDefinition($model, $definition);
+        $definition = sfToolkit::arrayDeepMerge($globals, $definition);
 
         // merge in the globals
         $definition = array_merge($globals, $definition);
