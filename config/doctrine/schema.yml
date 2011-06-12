@@ -1,0 +1,30 @@
+# Global options
+options:
+  charset: utf8
+  collate: utf8_unicode_ci
+
+Forumcategory:
+  comment: Forum category
+  columns:
+    id:                  { type: integer, primary: true, notnull: true, autoincrement: true, unsigned: true }
+    title:               { type: string(255), notnull: true, comment: Category name }
+    sortfactor:          { type: integer(1), notnull: true, default: 0, comment: Used in order by }
+  options:
+    orderBy: sortfactor
+  # Global options should be there:
+  # charset: utf8
+  # collate: utf8_unicode_ci
+Forumtopic:
+  comment: Forum topics
+  columns:
+    id:                  { type: integer, primary: true, notnull: true, autoincrement: true, unsigned: true }
+    forumcategory_id:    { type: integer, unsigned: true, notnull: true, comment: Category ID }
+    title:               { type: string(255), notnull: true, comment: Topic name }
+    published:           { type: integer(1), notnull: true, unsigned: true, comment: Is topic published }
+  actAs: [Timestampable]
+  relations:
+    Forumcategory:    ~
+ #  Global options should be there:
+ # options:
+   # charset: utf8
+   # collate: utf8_unicode_ci
