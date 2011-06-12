@@ -51,6 +51,20 @@ class sfValidatorDoctrineChoice extends sfValidatorBase
   /**
    * @see sfValidatorBase
    */
+  protected function isEmpty($value)
+  {
+    if (parent::isEmpty($value))
+      return true;
+
+    if ($this->getOption('multiple'))
+      return !count(array_filter((array)$value));
+
+    return false;
+  }
+
+  /**
+   * @see sfValidatorBase
+   */
   protected function doClean($value)
   {
     if ($query = $this->getOption('query'))
