@@ -49,6 +49,8 @@ abstract class BaseForumcategory extends sfDoctrineRecord
              'length' => 1,
              ));
 
+        $this->option('charset', 'utf8');
+        $this->option('collate', 'utf8_unicode_ci');
         $this->option('orderBy', 'sortfactor');
     }
 
