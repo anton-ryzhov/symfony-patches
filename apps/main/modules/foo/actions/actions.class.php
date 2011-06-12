@@ -30,7 +30,7 @@ class fooActions extends sfActions
         echo '<pre>';
         $this->form->getQuery();
         echo '</pre>';
-        echo 'It should be array(field=> type), but we have something strange<hr />';
+        echo 'It should be array(field=> type), and it do<hr />';
       }
     }
   }
