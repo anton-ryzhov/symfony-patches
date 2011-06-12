@@ -15,7 +15,7 @@ class ForumtopicForm extends BaseForumtopicForm
     unset($this['created_at']);
     unset($this['updated_at']);
 
-    $this->widgetSchema['upload'] = new sfWidgetFormInputFile();
-    $this->validatorSchema['upload'] = new sfValidatorFile(array('required'=> false));
+    $this->widgetSchema['caterogies'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Forumcategory'), 'add_empty' => true, 'multiple'=> true));
+    $this->validatorSchema['caterogies'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Forumcategory'), 'multiple'=> true, 'required'=> false));
   }
 }
