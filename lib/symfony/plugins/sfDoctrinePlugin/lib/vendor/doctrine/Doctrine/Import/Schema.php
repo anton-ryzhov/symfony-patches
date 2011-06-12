@@ -117,7 +117,6 @@ class Doctrine_Import_Schema
                                                           'default',
                                                           'scale',
                                                           'values',
-                                                          'comment',
                                                           'sequence',
                                                           'protected',
                                                           'zerofill',
