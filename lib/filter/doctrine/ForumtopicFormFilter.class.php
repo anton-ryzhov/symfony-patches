@@ -12,5 +12,7 @@ class ForumtopicFormFilter extends BaseForumtopicFormFilter
 {
   public function configure()
   {
+    unset($this['created_at']);
+    unset($this['updated_at']);
   }
 }

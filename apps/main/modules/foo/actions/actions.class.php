@@ -21,14 +21,16 @@ class fooActions extends sfActions
       where('f.published')->
       execute();
 
-    $this->form = new ForumtopicForm();
+    $this->form = new ForumtopicFormFilter();
     if ($request->isMethod('post') || $request->isMethod('put'))
     {
-      $this->form->bind($request->getParameter('forumtopic'), $request->getFiles('forumtopic'));
+      $this->form->bind($request->getParameter('forumtopic_filters'), $request->getFiles('forumtopic_filters'));
       if ($this->form->isValid())
       {
-        $this->form->updateObject();
-        //$this->form->save();
+        echo '<pre>';
+        $this->form->getQuery();
+        echo '</pre>';
+        echo 'It should be array(field=> type), but we have something strange<hr />';
       }
     }
   }
