@@ -20,5 +20,16 @@ class fooActions extends sfActions
     $this->data = ForumtopicTable::getInstance()->createQuery('f')->
       where('f.published')->
       execute();
+
+    $this->form = new ForumtopicForm();
+    if ($request->isMethod('post') || $request->isMethod('put'))
+    {
+      $this->form->bind($request->getParameter('forumtopic'), $request->getFiles('forumtopic'));
+      if ($this->form->isValid())
+      {
+        $this->form->updateObject();
+        //$this->form->save();
+      }
+    }
   }
 }

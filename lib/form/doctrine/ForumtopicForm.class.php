@@ -12,5 +12,10 @@ class ForumtopicForm extends BaseForumtopicForm
 {
   public function configure()
   {
+    unset($this['created_at']);
+    unset($this['updated_at']);
+
+    $this->widgetSchema['upload'] = new sfWidgetFormInputFile();
+    $this->validatorSchema['upload'] = new sfValidatorFile(array('required'=> false));
   }
 }

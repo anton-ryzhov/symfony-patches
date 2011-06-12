@@ -1,10 +1,9 @@
-<h1>List of showed topics</h1>
-<ul>{% for a in data %}
-  <li>{{ a }}</li>
-{% endfor %}</ul>
+<h1>Post form without a file</h1>
+{{ form.renderFormTag('') }}
+  <table>
+    {{ form }}
+  </table>
+    <input type="submit" />
+</form>
 
-<p>{{ 'foo/p' | include_partial }}</p>
-<p>{{ 'foo' | include_component('c') }}</p>
-
-<p>{{ 'bar/p' | include_partial }}</p>
-<p>{{ 'bar' | include_component('c') }}</p>
+<p>Form {{ form.isValid ? 'is valid' : 'is not valid' }}</p>
